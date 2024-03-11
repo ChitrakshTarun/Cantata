@@ -4,11 +4,17 @@ import LoginButton from "../components/LoginButton";
 import { LinearGradient } from "expo-linear-gradient";
 import {
 	useFonts,
+	Hind_300Light,
+	Hind_400Regular,
+	Hind_500Medium,
 	Hind_600SemiBold,
 	Hind_700Bold,
 } from "@expo-google-fonts/hind";
 const LoginScreen = () => {
 	let [fontsLoaded] = useFonts({
+		Hind_300Light,
+		Hind_400Regular,
+		Hind_500Medium,
 		Hind_600SemiBold,
 		Hind_700Bold,
 	});
@@ -33,13 +39,13 @@ const LoginScreen = () => {
 					</View>
 					<Text style={styles.taglineContainer}>Discover. Play. Repeat.</Text>
 				</View>
-				<View style={styles.textContainer}>
+				<View style={styles.middleContainer}></View>
+				<View style={styles.bottomContainer}>
 					<LoginButton />
 					<Text style={styles.bottomText}>
-						Cantata uses the Spotify API to work
+						Cantata uses the Spotify API to work.
 					</Text>
 				</View>
-				<View style={styles.buttonContainer}></View>
 			</View>
 		</LinearGradient>
 	);
@@ -55,11 +61,23 @@ const styles = StyleSheet.create({
 	},
 
 	topContainer: {
-		flex: 1,
+		flex: 2,
 		justifyContent: "flex-start",
 	},
+	middleContainer: {
+		flex: 4,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	bottomContainer: {
+		flex: 1.5,
+		justifyContent: "space-evenly",
+		alignItems: "center",
+	},
 	taglineContainer: {
+		paddingTop: 16,
 		fontSize: 40,
+		lineHeight: 48,
 		fontFamily: "Hind_600SemiBold",
 	},
 	brandContainer: {
@@ -73,23 +91,13 @@ const styles = StyleSheet.create({
 	imageContainer: {
 		flex: 1,
 	},
-	textContainer: {
-		flex: 2,
-		justifyContent: "space-evenly",
-		alignItems: "center",
-	},
 	topText: {
 		fontSize: 24,
 		fontFamily: "Hind_600SemiBold",
 	},
 	bottomText: {
-		fontFamily: "Hind_600SemiBold",
+		fontFamily: "Hind_400Regular",
 		fontSize: 16,
-		color: "gray",
-	},
-	buttonContainer: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
+		color: "#FFFFFF",
 	},
 });
