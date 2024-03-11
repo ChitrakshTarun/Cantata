@@ -1,4 +1,5 @@
-// components
+// navigations
+import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // screens
@@ -6,9 +7,9 @@ import HomeScreen from "./screens/HomeScreen";
 import SearchScreen from "./screens/SearchScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import LibraryScreen from "./screens/LibraryScreen";
-// Icons
+import LoginScreen from "./screens/LoginScreen";
+// icons
 import { Ionicons } from "@expo/vector-icons";
-import { NavigationContainer } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -116,6 +117,11 @@ function AppNavigation() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
+				<Stack.Screen
+					name="Login"
+					component={LoginScreen}
+					options={{ headerShown: false }}
+				/>
 				<Stack.Screen
 					name="Main"
 					component={BottomTabNavigator}
