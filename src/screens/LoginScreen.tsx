@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, StatusBar, Image } from "react-native";
 import React from "react";
+import LoginButton from "../components/LoginButton";
 import { LinearGradient } from "expo-linear-gradient";
 import {
 	useFonts,
@@ -18,20 +19,22 @@ const LoginScreen = () => {
 
 	return (
 		<LinearGradient
-			colors={["#73d2de", "#FFFFFF"]}
+			colors={["#FFFFFF", "#73d2de"]}
 			style={{ flex: 1 }}
 		>
 			<View style={styles.container}>
 				<View style={styles.topContainer}>
-					<Image
-						source={require("../../assets/icon.png")}
-						style={{ width: 36, height: 36 }}
-					/>
-					<Text style={styles.headContainer}>Cantata</Text>
+					<View style={styles.brandContainer}>
+						<Image
+							source={require("../../assets/icon.png")}
+							style={{ width: 36, height: 36 }}
+						/>
+						<Text style={styles.headContainer}>Cantata</Text>
+					</View>
+					<Text style={styles.taglineContainer}>Discover. Play. Repeat.</Text>
 				</View>
-				<Text>Melodic. Rhythmic. Harmonic.</Text>
 				<View style={styles.textContainer}>
-					<Text style={styles.topText}>Login with Spoopify lmao</Text>
+					<LoginButton />
 					<Text style={styles.bottomText}>
 						Cantata uses the Spotify API to work
 					</Text>
@@ -54,6 +57,12 @@ const styles = StyleSheet.create({
 	topContainer: {
 		flex: 1,
 		justifyContent: "flex-start",
+	},
+	taglineContainer: {
+		fontSize: 40,
+		fontFamily: "Hind_600SemiBold",
+	},
+	brandContainer: {
 		flexDirection: "row",
 	},
 	headContainer: {
