@@ -13,6 +13,7 @@ import {
 } from "@expo-google-fonts/hind";
 import { useNavigation } from "@react-navigation/native";
 const LoginScreen = () => {
+	const navigation = useNavigation() as any; // Fix this 💀 figure out why it doesn't work without as any
 	let [fontsLoaded] = useFonts({
 		Hind_300Light,
 		Hind_400Regular,
@@ -24,9 +25,8 @@ const LoginScreen = () => {
 	if (!fontsLoaded) {
 		return null;
 	}
-	const navigation = useNavigation() as any; // Fix this 💀 figure out why it doesn't work without as any
 	const authenticate = () => {
-		console.log("Test");
+		console.log("Logged in! (kind of)");
 		navigation.replace("Main");
 	};
 	return (

@@ -5,20 +5,58 @@ import {
 	ScrollView,
 	Image,
 	StatusBar,
+	FlatList,
 } from "react-native";
 import React from "react";
+import AlbumCard from "../components/AlbumCard";
 
 const HomeScreen = () => {
 	return (
 		<ScrollView style={styles.container}>
 			<View style={styles.brandContainer}>
 				<Image
-					source={require("../../assets/icon.png")}
+					source={require("../../assets/catonglass.png")}
 					style={{ width: 36, height: 36 }}
 				/>
 				<Text style={styles.headContainer}>Good morning, user</Text>
 			</View>
-			<Text style={styles.taglineContainer}>Heading 1</Text>
+			<Text style={styles.taglineContainer}>Subsection 1</Text>
+			<ScrollView // Build reusable component out of this
+				horizontal
+				nestedScrollEnabled={true}
+				showsHorizontalScrollIndicator={false}
+			>
+				<AlbumCard // For temporary show, use a list of AlbumCard components
+					albumName="Cat On Glass"
+					artist="Kanye West, Taylor Swift"
+					artwork={require("../../assets/catonglass.png")}
+				/>
+				<AlbumCard
+					albumName="Cat On Glass"
+					artist="Kanye West, Taylor Swift"
+					artwork={require("../../assets/catonglass.png")}
+				/>
+				<AlbumCard
+					albumName="Cat On Glass"
+					artist="Kanye West, Taylor Swift"
+					artwork={require("../../assets/catonglass.png")}
+				/>
+				<AlbumCard
+					albumName="Cat On Glass"
+					artist="Kanye West, Taylor Swift"
+					artwork={require("../../assets/catonglass.png")}
+				/>
+				<AlbumCard
+					albumName="Cat On Glass"
+					artist="Kanye West, Taylor Swift"
+					artwork={require("../../assets/catonglass.png")}
+				/>
+				<AlbumCard
+					albumName="Cat On Glass"
+					artist="Kanye West, Taylor Swift"
+					artwork={require("../../assets/catonglass.png")}
+				/>
+			</ScrollView>
 		</ScrollView>
 	);
 };
