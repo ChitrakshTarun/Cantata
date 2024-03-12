@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, StatusBar, Image } from "react-native";
 import React from "react";
 import LoginButton from "../components/LoginButton";
 import { LinearGradient } from "expo-linear-gradient";
+
 import {
 	useFonts,
 	Hind_300Light,
@@ -10,6 +11,7 @@ import {
 	Hind_600SemiBold,
 	Hind_700Bold,
 } from "@expo-google-fonts/hind";
+import { useNavigation } from "@react-navigation/native";
 const LoginScreen = () => {
 	let [fontsLoaded] = useFonts({
 		Hind_300Light,
@@ -22,7 +24,11 @@ const LoginScreen = () => {
 	if (!fontsLoaded) {
 		return null;
 	}
-
+	const navigation = useNavigation() as any; // Fix this 💀 figure out why it doesn't work without as any
+	const authenticate = () => {
+		console.log("Test");
+		navigation.replace("Main");
+	};
 	return (
 		<LinearGradient
 			colors={["#FFFFFF", "#73d2de"]}
@@ -41,7 +47,7 @@ const LoginScreen = () => {
 				</View>
 				<View style={styles.middleContainer}></View>
 				<View style={styles.bottomContainer}>
-					<LoginButton />
+					<LoginButton onPress={authenticate} />
 					<Text style={styles.bottomText}>
 						Cantata uses the Spotify API to work.
 					</Text>
@@ -75,7 +81,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	taglineContainer: {
-		paddingTop: 16,
+		paddingTop: 32,
 		fontSize: 40,
 		lineHeight: 48,
 		fontFamily: "Hind_600SemiBold",
